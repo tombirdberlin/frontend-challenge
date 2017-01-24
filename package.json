@@ -1,0 +1,21 @@
+{
+  "name": "exozet",
+  "version": "1.0.0",
+  "description": "Frontend Challange",
+  "main": "grunt.js",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-css": "^0.3.2"
+  },
+  "devDependencies": {
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-uglify": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thomas Vogel",
+  "license": "ISC"
+}

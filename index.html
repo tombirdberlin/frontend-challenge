@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <title>exozet Frontend Challenge – HTML/CSS/JS</title>
+    <meta name="description" content="Testaufgabe Frontend Challenge – HTML/CSS/JS eingreicht von Thomas Vogel">
+    <meta name="author" content="Thomas Vogel">
+    <meta name="keywords" content="exozet,Frontend Challenge,HTML,CSS,JavaScript">
+
+    <link href="css/exozet.min.css"  rel="stylesheet" media="all">
+</head>
+
+<body>
+<div class="site-container">
+
+	<div class="line-out-mover">
+	<header>
+		<div class="wrap header">
+			<div class="title-area">
+				<a href="/"><img src="img/exozet-logo.png" alt="exozet Logo"></a>
+			</div>
+			<div class="navigation-area">
+				<div class="responsive-menu-icon"></div>
+				<nav class="navbar" id="navigation">
+					<ul>
+						<li class="menu-item active"><a href="news.html">News</a></li>
+						<li class="menu-item"><a href="kontakt.html">Kontakt</a></li>
+						<li class="menu-item"><a href="impressum.html">Impressum</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div><!-- .wrap -->
+	</header>
+	</div>
+	<hr class="line-out">
+	<div class="site-inner">
+		<div class="wrap">
+		
+		<main class="content">
+		<article id="content-text">
+		<header>
+			<div class="article-date"><time datetime="2012-02-20T19:10+01:00" pubdate="pubdate">20.02.2012 | 19:02 Uhr</time></div>
+			<h1>Long Headlinetext</h1>
+		</header>
+			<p>Es gibt im Moment in diese Mannschaft, oh, einige Spieler vergessen ihnen Profi was sie sind. Ich lese nicht sehr viele Zeitungen, aber ich habe gehört viele Situationen. Erstens: wir haben nicht offensiv gespielt. Es gibt keine deutsche Mannschaft spielt offensiv und die Name offensiv wie Bayern.</p>
+			<p>Letzte Spiel hatten wir in Platz drei Spitzen: Elber, Jancka und dann Zickler. Wir müssen nicht vergessen Zickler. Zickler ist eine Spitzen mehr, Mehmet eh mehr Basler. Ist klar diese Wörter, ist möglich verstehen, was ich hab gesagt? Danke.</p>
+			<!-- Zitat -->
+			<hr>
+			<blockquote>
+				<p>„Ein Trainer ist nicht ein Idiot! Ein Trainer sei sehen was passieren in Platz.“ – Trapattoni ’98</p>
+				<!-- Question: Trapattoni ’98 als <footer></footer>?? -->
+			</blockquote>
+			<hr>
+			<!-- Zitat Ende -->
+			<p>Offensiv, offensiv ist wie machen wir in Platz. Zweitens: ich habe erklärt mit diese zwei Spieler: nach Dortmund brauchen vielleicht Halbzeit Pause. Ich habe auch andere Mannschaften gesehen in Europa nach diese Mittwoch. Ich habe gesehen auch zwei Tage die Training.</p>
+			<figure>
+				<div class="image-shadow"><img src="img/opernhaus-sydney.jpg" alt="Das Opernhaus von Sydney | Sydney Opera House" width="267" height="136"></div>
+				<figcaption>&copy; Lorempixel.com</figcaption>
+			</figure>
+			<p>Ich habe fertig! . . . wenn es gab Fragen, ich kann Worte wiederholen. . . Es gibt im Moment in diese Mannschaft, oh, einige Spieler vergessen ihnen Profi was sie sind. Ich lese nicht sehr viele Zeitungen, aber ich habe gehört viele Situationen. Erstens: wir haben nicht offensiv gespielt. Es gibt keine <a href="/thema/deutsche-mannschaft.html">deutsche Mannschaft</a> spielt offensiv und die Name offensiv wie Bayern. Letzte Spiel hatten wir in Platz drei Spitzen: Elber, Jancka und dann Zickler. Wir müssen nicht vergessen Zickler. Zickler ist eine Spitzen mehr, Mehmet eh mehr Basler. Ist klar diese Wörter, ist möglich verstehen, was ich hab gesagt? Danke. Offensiv, offensiv ist wie machen wir in Platz. Zweitens: ich habe erklärt mit diese zwei Spieler: nach Dortmund brauchen vielleicht Halbzeit Pause. Ich habe auch andere Mannschaften gesehen in Europa nach diese Mittwoch.</p>
+		</article>
+		
+		<section id="content-form">	
+			
+			<h2>Formular</h2>
+			<form class="contact_form" action="#" onsubmit="return myFunction()" method="post" name="contact_form">
+			<ul>
+				<li>
+					 Felder mit einem <span class="required">*</span> sind Pflichtfelder.<br>
+					 <div id="validation" class="validation-error"></div>
+				</li>
+				<li>
+					<label for="Name">Name<span class="required">*</span></label>
+					<input type="text" id="Name" name="Name" required>
+				</li>
+				<li>
+					<label for="EMail">E-Mail<span class="required">*</span></label>
+					<input type="email" id="EMail" name="EMail" required>
+				</li>
+				<li>
+					<label for="Telefon">Telefon</label>
+					<input type="text" id="Telefon" name="Telefon">
+				</li>
+				<li>
+					<label for="Kommentar">Kommentar<span class="required">*</span></label>
+					<textarea id="Kommentar" name="Kommentar" cols="35" rows="4" maxlength="501" required ></textarea>
+				</li>
+				<li>
+					<button class="submit" type="submit" >Abschicken</button>
+				</li>
+			</ul>
+
+			</form>
+			
+		</section>
+		
+		<section id="description">
+			<h2>Leistungsumfang</h2>
+			
+			<div class="description-left">
+			<ol>
+				<li>Lorem</li>
+				<li>Ipsum</li>
+				<li>Dolor</li>
+				<li>Sit</li>
+			</ol>
+			</div>
+			<div class="description-right">
+			<p>Exozet: GmbH<br>
+			Mitarbeiter: ca. 150<br>
+			Groups: Games, Interact, Effects<br>
+			Gründung: 1996</p>
+			</div>
+		</section>
+
+		</main>
+		
+		<aside class="sidebar">
+			
+			<section id="sidebar-1">
+			<h3>Interne Linkliste</h3>
+			<ul>
+				<li><a href="link1.html">Link Nummer 1</a></li>
+				<li><a href="link2.html">Link Nummer 2</a></li>
+				<li><a href="link3.html">Link Nummer 3</a></li>
+			</ul>
+			</section>
+			
+			<section id="sidebar-2">
+			<h3>Kontakt</h3>
+
+			<p>Exozet Berlin GmbH<br>
+			Platz der Luftbrücke 4-6<br>
+			12101 Berlin</p>
+			<p>
+			<span class="contact_phone">Tel.: +49 (0)30 24 65 60 - 0</span><br>
+			<span class="contact_mail">E-Mail: <a href="mailto:info@exozet.com">info@exozet.com</a></span></p>
+			</section>
+			
+			<section id="sidebar-3">
+			<h3>Image Teaser</h3>
+			<div class="image-teaser">
+			<img src="img/ipad.jpg" alt="Man shows iPad" width="220" height="130">
+			<div class="image-teaser-text">
+			<p>Es gibt im Moment in diese Mannschaft, oh einige Spieler!</p>
+			<a href="mehr-lesen.html" class="button">Mehr lesen</a>
+			</div>
+			</div>
+			</section>
+
+		</aside>
+		
+		</div><!-- .wrap -->
+	</div><!-- .site-inner -->
+	<hr class="line-out">
+	<footer>
+		<div class="wrap">
+			<div class="footer-copyright">&copy; exozet 2014</div>
+			<div class="footer-navigation"><a href="/news.html">News</a> | <a href="/kontakt.html">Kontakt</a> | <a href="/impressum.html">Impressum</a></div>
+		</div><!-- .wrap -->
+	</footer>
+	
+</div><!-- .site-container -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script src="js/exozet.min.js"></script>
+</body>
+</html>
+

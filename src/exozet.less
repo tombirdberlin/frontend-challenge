@@ -1,0 +1,665 @@
+/*
+**		Frontend Challange exozet
+**		Autor: Thomas Vogel
+**		Search for String "Question:" to find issues
+**
+****************************************************/
+
+// Fonts
+// --------------------------------------------------
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web|Merriweather:700i');
+
+@font-face { font-family: 'Titillium';
+             src: url('../fonts/Titillium-Regular.otf#')  format('opentype') }
+@font-face { font-family: 'Titillium Bold';
+             src: url('../fonts/Titillium-Bold.otf#')  format('opentype') }
+
+/* normalize.css v4.1.1 | MIT License | http://necolas.github.io/normalize.css/ */
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}template,[hidden]{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}button,input{overflow:visible}button,select{text-transform:none}button,html [type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:0.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
+
+
+// Variables
+// --------------------------------------------------
+
+// Typography:
+@font-base:							'Titillium','Titillium Web', sans-serif;
+@font-base-bold:					'Titillium Bold','Titillium Web', sans-serif;
+@font-special:						'Merriweather', serif;
+@font-description:					'Verdana', sans-serif;
+@font-size-base:					14px;
+
+// Colors:
+@font-color:						#333;
+@link-color:						#739024;
+@link-color-gradient:				#b6c58e;
+
+// Navbar:
+@navbar-default-color: 				#333;
+@navbar-default-bg:					#666;
+@navbar-margin-bottom:				1em;
+
+
+// Styles
+// --------------------------------------------------
+
+// General
+html {
+	color:							@font-color;
+	font-size:						@font-size-base;
+	font-family:					@font-base;
+}
+
+body {
+	background:						url('../img/bg.gif');
+}
+
+p {
+	line-height:					20px;
+	padding-bottom: 				20px;
+	-webkit-margin-before:			0em;
+	-webkit-margin-after:			0em;
+}
+
+a {
+	color: 							@link-color;
+	text-decoration: 				none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: 				underline;
+}
+
+ul {
+	margin: 						0;
+	padding:						0;
+}
+ol {
+	margin: 						0;
+}
+
+ul li {
+	list-style-type: 				none;
+}
+
+hr {
+	border: 0;
+	border-collapse: 				collapse;
+	border-top: 					1px solid #c3c0c5;
+	clear: 							both;
+	width:							300px;
+	margin-top:						0;
+	margin-bottom:					14px;
+	
+	&.line-out {
+	    position: 					absolute;
+		left: 						0;
+		width: 						50%;
+		margin: 					0;
+	}
+}
+
+/* do the trick for the line to the left */
+.line-out-mover {
+	position: 						relative;
+	top: 							1px;
+}
+
+blockquote {
+	font-family:					@font-special;
+	font-size:						18px;
+	font-style:						italic;
+	text-align:						center;
+	margin: 						0 60px;
+	
+		p {
+			float:					left;
+		}
+		hr {
+			width:					300px;
+			margin-top:				0;
+		}
+		footer {
+		
+		}
+	
+		&:before {
+
+		}
+}
+
+figure {
+	float: 							left;
+	margin: 						10px 20px 10px 0;
+	
+	img {
+		width: 						220px;
+		overflow: 					hidden;
+		background: 				#f5f5f5;
+		padding: 					3px;
+	}
+	
+	.image-shadow {
+		-webkit-box-shadow:			0px 2px 6px rgba(0,0,0,0.25);
+		-moz-box-shadow: 			0px 2px 6px rgba(0,0,0,0.25);
+		-ms-box-shadow: 			0px 2px 6px rgba(0,0,0,0.25);
+		-o-box-shadow: 				0px 2px 6px rgba(0,0,0,0.25);
+		box-shadow: 				0px 2px 6px rgba(0,0,0,0.25);
+		height: 142px;
+	}
+}
+figcaption {
+	margin: 						5px 0;
+	color:							#999999;
+	font-family:					@font-description;
+	font-size:						11px;
+}
+
+// Headlines
+// --------------------------------------------------
+
+
+.content h1,
+.content h2 {
+	font-family:					@font-base-bold;
+	font-size:						32px;
+	font-weight:					bold;
+	text-transform:					uppercase;
+	margin:							0 0 18px;
+	border-bottom: 					1px solid #c3c0c5;
+	
+	/* Question: special character at the end of headlines . Why: Looks different from layout!? Wrong font given in PSD??? */
+	&:after {
+        content:					' /'; 
+		// font-family:				@font-special;  
+    }
+}
+.content h1 {
+	border-bottom: 					0;
+	line-height:					1em;
+}
+.sidebar h3 {
+	font-size:						18px;
+	line-height:					30px;
+	font-weight:					normal;
+	border-bottom: 					1px solid #c3c0c5;
+	margin:							28px 0 12px;
+}
+
+// Header
+// --------------------------------------------------
+
+.title-area {
+	float: 							left;
+	width: 							250px;
+	padding-left: 					10px;
+}
+.navigation-area {
+	float: 							right;
+    text-align: 					right;
+	padding: 						6px 1px 0 0;
+	
+		.navbar {
+			font-size: 				18px;
+			text-transform:			uppercase;
+			
+			.menu-item {
+				float: 				left;
+				
+					a {
+						
+						border: 					1px solid #fff;
+						-webkit-border-radius: 		3px;
+						-moz-border-radius: 		3px;
+						-ms-border-radius: 			3px;
+						-o-border-radius: 			3px;
+						border-radius: 				3px;
+						color: 						#333;
+						padding: 					5px 18px;
+						text-align: 				center;
+						display: 					inline-block;
+						margin: 					0 1px;
+						cursor: 					pointer;
+
+					}
+					
+					&.active a {
+						background-color: 			#bfbfbf;
+						background-image: 			linear-gradient(to top, #bfbfbf, #f2f2f2);
+						border: 					1px solid #c3c0c5;
+					}
+					
+					:hover,
+					&.active a:hover {
+						background-color: 			@link-color;
+						background-image: 			linear-gradient(to top, @link-color, @link-color-gradient);
+						color: 						#fff;
+						border: 					1px solid #536e0b;
+						text-decoration: 			none;
+						-webkit-box-shadow:			0 1px 3px rgba(255,255,255,0.35) inset;
+						-moz-box-shadow: 			0 1px 3px rgba(255,255,255,0.35) inset;
+						-ms-box-shadow: 			0 1px 3px rgba(255,255,255,0.35) inset;
+						-o-box-shadow: 				0 1px 3px rgba(255,255,255,0.35) inset;
+						box-shadow: 				0 1px 3px rgba(255,255,255,0.35) inset;
+						text-shadow: 				0em -0.05em 0.05em #333;
+							
+					}
+					
+					&:last-child a {
+						margin: 					0;
+					}
+			}
+		}
+	
+	.responsive-menu-icon {
+		cursor: pointer;
+		display: none;
+		text-align: right;
+		border: 2px solid #333;
+		/*
+		position: absolute;
+		top: 28px;
+		right: 0;
+		*/
+		
+		&:before {		
+			content: "\2261";
+			display: inline-block;
+			margin: 0 auto;
+			font-size: 18px;
+			padding: 10px 15px;
+		}
+		
+	}
+}
+
+.header {
+		border-bottom: 					1px solid #c3c0c5;
+		
+		&:after {
+				clear: 					both;
+				content: 				" ";
+				display: 				table;
+		}
+}
+
+// Main Content
+// --------------------------------------------------
+
+.wrap {
+		margin: 						0 20px;
+		padding-bottom:					26px;
+		
+		&:after {
+				clear: 					both;
+				content: 				" ";
+				display: 				table;
+		}
+		
+}
+
+.site-container {
+	margin: 							0 auto;
+	padding:							38px 0;
+	max-width: 							1000px;
+	background:							#fff;
+	-webkit-box-shadow: 				0px 0px 10px 0px rgba(0,0,0,0.15);
+	-moz-box-shadow: 					0px 0px 10px 0px rgba(0,0,0,0.15);
+	box-shadow: 						0px 0px 10px 0px rgba(0,0,0,0.15);
+}
+
+.site-inner {
+
+		.wrap {
+			    padding-bottom: 		0;
+		}
+		&:after {
+			clear: 						both;
+			content: 					" ";
+			display: 					table;
+		}
+}
+.content {
+	float: 								left;
+	max-width: 							600px;
+	padding: 							40px 20px 0 10px;
+	
+	article,
+	section {
+				margin-bottom:			40px;
+		}
+}
+
+.article-date {
+	color:								#999;
+}
+
+.description-left,
+.footer-copyright {
+	width:								50%;
+	float: 								left;
+}
+#description {
+	&:after {
+		clear:							both;	
+	}
+}
+
+// Footer
+// --------------------------------------------------
+
+footer {
+		padding-top:					20px;
+		border-top: 					1px solid #c3c0c5;
+}
+.footer-navigation {
+	color: 								@link-color;
+	text-align: 						right;
+}
+
+
+// Forms and Buttons
+// --------------------------------------------------
+
+
+.button,
+.submit {
+	background-color: 					@link-color;
+    background-image: 					linear-gradient(to top, @link-color, @link-color-gradient);
+    color: 								#fff;
+    padding: 							5px 10px;
+    text-align: 						center;
+    display: 							inline-block;
+    cursor: 							pointer;
+	border: 							1px solid #536e0b;
+	 -webkit-border-radius: 			5px;
+    -moz-border-radius: 				5px;
+    -ms-border-radius: 					5px;
+    -o-border-radius: 					5px;
+	border-radius: 						5px;
+	-webkit-box-shadow:					0px 1px 2px #000, 0 1px 3px rgba(255,255,255,0.35) inset;
+	-moz-box-shadow: 					0px 1px 2px #000, 0 1px 3px rgba(255,255,255,0.35) inset;
+	-ms-box-shadow: 					0px 1px 2px #000, 0 1px 3px rgba(255,255,255,0.35) inset;
+	-o-box-shadow: 						0px 1px 2px #000, 0 1px 3px rgba(255,255,255,0.35) inset;
+	box-shadow: 						0px 1px 2px #000, 0 1px 3px rgba(255,255,255,0.35) inset;
+	text-shadow: 						0em -0.05em 0.05em #333;
+	
+	&:hover,
+	&:focus {
+		opacity:						.85;
+		text-decoration: 				none;
+	}
+	
+}
+
+.contact_form {
+	*:focus {
+		outline: 						none;
+	}
+	
+	li {
+		padding: 						5px 0;
+		
+		&:first-child {
+			padding-left: 				160px;
+		}
+		&:last-child {
+			width: 						480px;
+			text-align: 				right;
+		}
+		
+	}
+	
+	.required {
+		color: 							@link-color;
+	}
+	
+	label {
+		width:							140px;
+		margin-right: 					20px;
+		display:						inline-block;
+		float:							left;
+		padding:						3px 0;
+		text-align:						right;
+	}
+	input,
+	textarea {
+		height:							20px; 
+		width:							300px; 
+		padding:						5px 8px;
+		border: 						1px solid #c3c0c5;
+		-webkit-border-radius: 			5px;
+		-moz-border-radius: 			5px;
+		-ms-border-radius: 				5px;
+		-o-border-radius: 				5px;
+		border-radius: 					5px;
+		-webkit-box-shadow:				0px 1px 3px rgba(0,0,0,0.35) inset;
+		-moz-box-shadow: 				0px 1px 3px rgba(0,0,0,0.35) inset;
+		-ms-box-shadow: 				0px 1px 3px rgba(0,0,0,0.35) inset;
+		-o-box-shadow: 					0px 1px 3px rgba(0,0,0,0.35) inset;
+		box-shadow: 					0px 1px 3px rgba(0,0,0,0.35) inset;
+		
+		&:focus {
+			padding-right:				80px;
+		}
+	}
+	textarea {
+		padding:						8px;
+		height:							100px;
+	}
+
+}
+
+.validation-error {
+	font-family:						@font-description;
+	font-size:							13px;
+	padding: 							14px 0;
+	color: 								#e30042;
+	
+		p {
+			padding: 					0;
+		}
+}
+
+// Sidebar Containers
+// --------------------------------------------------
+.sidebar {
+	float: 								right;
+    width: 								220px;
+	padding-top: 						35px;
+	margin-right:						10px;
+		
+	p {
+		line-height: 					18px;
+		padding-bottom: 				18px;
+	}
+	
+	ul {
+		padding-left: 					20px;
+		
+		li {
+	
+			list-style-image: 			url('../img/list-image-arrow.png');
+			line-height: 				18px;
+			
+			/* Question: better in sprites.png?
+			&:before {
+				background: 			url(../img/sprites.png);
+				background-repeat: 		no-repeat;
+				background-position: 	0 -27px; 
+				float: 					left;
+				width:					14px;
+				height:					14px;
+				display:				block;
+				position: 				relative;
+				top: 					3px;
+				content:				"";
+			}
+			*/
+		}
+	}
+
+}
+
+.contact_phone {
+		&:before {
+				background-image: 		url('../img/sprites.png');
+				background-repeat: 		no-repeat;
+				background-position: 	3px 2px; 
+				display: 				inline-block;
+				width: 					21px;
+				height: 				14px;
+				position: 				relative;
+				top: 					3px;
+				content:				"";
+		}
+}
+.contact_mail {
+		&:before {
+				background-image: 		url('../img/sprites.png');
+				background-repeat: 		no-repeat;
+				background-position: 	3px -16px; 
+				display: 				inline-block;
+				width: 					21px;
+				height: 				14px;
+				position: 				relative;
+				top: 					3px;
+				content:				"";
+		}
+}
+
+/* (Image Teaser) */
+
+#sidebar-3 {
+	/* Question: Anderer Abstand!? */
+	position:							relative;
+	top:								-15px;
+}
+
+.image-teaser {
+	
+	background: 						#eee;
+	font-family:						@font-description;
+	font-size:							13px;
+
+	
+	.image-teaser-text {
+		padding: 						7px 7px 10px;
+		border: 						1px solid #c3c0c5;
+		border-top: 					0;
+		
+		/* Question: : space above border. why?
+		position: 						relative;
+		top: 							-3px;
+		overflow: 						hidden;
+		*/
+	}
+	
+	.button {
+		width: 							89%; /* ~205px for viewport desktop */
+	}	
+}
+
+
+
+// Responsive Layout and Print Styles
+// --------------------------------------------------
+
+/* (Laptop) */
+@media only screen and (max-device-width: 1280px) {
+
+}
+
+/* (iPad Querformat) */
+@media only screen and (max-device-width: 1024px) {
+	.line-out {
+		display: 						none;
+	}
+
+}
+
+/* (iPad Hochformat) */
+@media only screen and (max-device-width: 768px) {
+
+	.site-container {
+		width:							100%;
+		max-width: 						100%;
+	}
+	.sidebar,
+	.content {
+		clear: 							both;
+		width: 							100%;
+		max-width:						100%;
+	}
+	.sidebar {
+		padding:						0;
+		margin: 						0;
+	}
+	
+	.contact_form {
+		
+		li {
+			padding: 						5px 0;
+			
+			&:first-child {
+				padding: 					0;
+			}
+			&:last-child {
+				width: 						100%;
+			}
+			
+		}
+		
+		label {
+			width:							100%;
+			margin-right: 					0;
+			float:							none;
+			text-align:						left;
+		}
+		input,
+		textarea {
+			width:							100%; 
+			
+			&:focus {
+				padding-right:				0;
+			}
+		}
+		textarea {
+			padding:						8px;
+			height:							100px;
+		}
+
+	}
+
+	
+}
+
+/* (iPhone Querformat) */
+@media only screen and (max-device-width: 480px) {
+
+	.navigation-area {
+		
+		padding: 						0;
+		
+		.responsive-menu-icon {
+			display: 					block;
+		}
+		.navbar {
+			display: 					none;
+		}
+	}
+	.image-teaser .button {
+		width: 							190px;
+	}
+	/****  to be continued with given layout options ****/
+}
+
+/* (iPhone Hochformat) */
+@media only screen and (max-device-width: 320px) {
+
+}
+
+@media print {
+
+}
+
